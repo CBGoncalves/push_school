@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class RailMenu extends StatefulWidget {
-  const RailMenu({super.key});
+  final int selectedDrawerIndex;
+
+  const RailMenu({
+    required this.selectedDrawerIndex,
+    super.key
+  });
 
   @override
   State<RailMenu> createState() => _RailMenuState();
@@ -9,7 +15,6 @@ class RailMenu extends StatefulWidget {
 
 class _RailMenuState extends State<RailMenu> {
   NavigationRailLabelType labelType = NavigationRailLabelType.selected;
-  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +23,7 @@ class _RailMenuState extends State<RailMenu> {
       children: [
         NavigationRail(
           minWidth: 56,
-          onDestinationSelected: ((value) {
-            setState(() {
-              _selectedIndex = value;
-            });
-          }),
+          onDestinationSelected: (selectedDrawerIndex) => updateRoute(selectedDrawerIndex),
           groupAlignment: 0.0,
           leading: Column(children: [
             IconButton(
@@ -56,7 +57,7 @@ class _RailMenuState extends State<RailMenu> {
             const NavigationRailDestination(
                 icon: Icon(Icons.settings), label: Text('Configurações'))
           ],
-          selectedIndex: _selectedIndex,
+          selectedIndex: widget.selectedDrawerIndex,
           labelType: labelType,
         ),
         const VerticalDivider(
@@ -65,5 +66,22 @@ class _RailMenuState extends State<RailMenu> {
         ),
       ],
     );
+  }
+
+  void updateRoute(selectedDrawerIndex) {
+    switch (selectedDrawerIndex) {
+      case 0:
+        context.push('/home');
+        break;
+      case 1:
+        context.push('/courses');
+        break;
+      case 2:
+        context.push('/home');
+        break;
+      case 3:
+        context.push('/home');
+        break;
+    }
   }
 }

@@ -14,18 +14,29 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+      body: SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            'assets/img/logo_branca.png',
-            width: 270,
+          Padding(
+            padding: const EdgeInsets.only(top: 60),
+            child:
+              Image.asset(
+                'assets/img/logo_branca.png',
+                width: 270,
+              ),
           ),
-          const Input(label: 'Login'),
-          const Input(label: 'Senha'),
-          const Button(location: '/home', label: 'Entrar'),
+          const Input(
+            label: 'Login'
+          ),
+          const Input(
+            label: 'Senha'
+          ),
+          const Button(
+            location: '/home',
+            label: 'Entrar'
+          ),
           const Button(
             location: '/',
             label: 'Cadastre-se',

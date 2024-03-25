@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pushschool/components/previewCard.dart';
 import 'package:pushschool/components/railmenu.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class CoursesScreen extends StatefulWidget {
+  const CoursesScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CoursesScreen> createState() => _CoursesScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CoursesScreenState extends State<CoursesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,18 +21,18 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.message))
         ],
       ),
-      body:
+      body: 
       const Row(
         children: [
-          RailMenu(selectedDrawerIndex: 0),
-          SizedBox(width: 6),
+          RailMenu(selectedDrawerIndex: 1),
+          SizedBox(width: 6,),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Novidades para você",
+                  "Nossos cursos",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15
@@ -47,18 +47,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   location: '/home',
                 ),
                 PreviewCard(
-                  image: 'assets/img/seguranca.png',
-                  icon: Icons.article,
-                  title: 'OWASP Top 10 - Sua aplicação é realmente segura? Descubra...',
-                  subtitle: 'loren ipsun domain loren ipsun domain',
-                  label: 'Ver Mais',
-                  location: '/home',
-                ),
+                  image: 'assets/img/javascript.png',
+                  icon: Icons.javascript,
+                  title: 'JavaScript',
+                  subtitle: 'JavaScript é uma linguagem de programação interpretada....',
+                  label: 'Ver mais',
+                  location: '/home'
+                )
               ],
-            ),
-          )
-        ],),
-      
+            ) 
+          ),
+        ],
+      ),
     );
   }
 }

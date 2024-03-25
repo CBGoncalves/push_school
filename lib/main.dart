@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pushschool/screens/courses_screen.dart';
 import 'package:pushschool/screens/home_screen.dart';
 import 'package:pushschool/screens/login_screen.dart';
 
@@ -12,6 +13,10 @@ final router = GoRouter(routes: [
   GoRoute(
     path: '/home',
     builder: (context, state) => const HomeScreen(),
+  ),
+  GoRoute(
+    path: '/courses',
+    builder: (context, state) => const CoursesScreen(),
   )
 ]);
 
