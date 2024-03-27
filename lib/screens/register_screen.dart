@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pushschool/components/button.dart';
 import 'package:pushschool/components/input.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final bool showAppBar = false;
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60),
+            padding: const EdgeInsets.only(top: 20),
             child:
               Image.asset(
                 'assets/img/logo_branca.png',
@@ -28,21 +27,34 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
           ),
           const Input(
-            label: 'Login'
+            label: 'Nome'
+          ),
+          const Input(
+            label: 'Sobrenome'
+          ),
+          const Input(
+            label: 'E-mail'
+          ),
+          const Input(
+            label: 'Telefone'
           ),
           const Input(
             label: 'Senha'
           ),
-          const Button(
-            location: '/home',
-            label: 'Entrar'
+          const Input(
+            label: 'Confirmar Senha'
           ),
           const Button(
-            location: '/register',
-            label: 'Cadastre-se',
+            location: '/home',
+            label: 'Cadastrar'
+          ),
+          const Button(
+            location: '/',
+            label: 'Voltar',
           ),
         ],
       ),
-    ));
+    )
+    );
   }
 }
