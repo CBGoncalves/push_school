@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class RailMenu extends StatefulWidget {
-  final int selectedDrawerIndex;
+  final int? selectedDrawerIndex;
 
-  const RailMenu({
-    required this.selectedDrawerIndex,
-    super.key
-  });
+  const RailMenu({required this.selectedDrawerIndex, super.key});
 
   @override
   State<RailMenu> createState() => _RailMenuState();
@@ -23,7 +20,8 @@ class _RailMenuState extends State<RailMenu> {
       children: [
         NavigationRail(
           minWidth: 56,
-          onDestinationSelected: (selectedDrawerIndex) => updateRoute(selectedDrawerIndex),
+          onDestinationSelected: (selectedDrawerIndex) =>
+              updateRoute(selectedDrawerIndex),
           groupAlignment: 0.0,
           leading: Column(children: [
             IconButton(

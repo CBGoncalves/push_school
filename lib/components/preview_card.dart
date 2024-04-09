@@ -3,21 +3,20 @@ import 'package:pushschool/components/button.dart';
 
 class PreviewCard extends StatefulWidget {
   final String image;
-  final IconData icon;
+  final IconData? icon;
   final String title;
   final String subtitle;
   final String label;
   final String location;
 
-  const PreviewCard ({
-    required this.image,
-    required this.icon,
-    required this.title,
-    required this.subtitle,
-    required this.label,
-    required this.location,
-    super.key
-  });
+  const PreviewCard(
+      {required this.image,
+      required this.icon,
+      required this.title,
+      required this.subtitle,
+      required this.label,
+      required this.location,
+      super.key});
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -27,10 +26,7 @@ class _PreviewCardState extends State<PreviewCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 8.0,
-        bottom: 8.0
-      ),
+      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
       child: Card(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -69,7 +65,6 @@ class _PreviewCardState extends State<PreviewCard> {
           ],
         ),
       ),
-      
     );
   }
 }

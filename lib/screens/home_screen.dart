@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pushschool/components/previewCard.dart';
+import 'package:pushschool/components/preview_card.dart';
 import 'package:pushschool/components/railmenu.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,14 +15,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Olá, Carlos',
-        style: TextStyle(fontWeight: FontWeight.bold)),
+            style: TextStyle(fontWeight: FontWeight.bold)),
         actions: [
-          IconButton(icon: const Icon(Icons.search), onPressed: () {  },),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
           IconButton(onPressed: () {}, icon: const Icon(Icons.message))
         ],
       ),
-      body:
-      const Row(
+      body: const Row(
         children: [
           RailMenu(selectedDrawerIndex: 0),
           SizedBox(width: 6),
@@ -33,10 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text(
                   "Novidades para você",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
                 PreviewCard(
                   image: 'assets/img/logica_programacao.png',
@@ -49,7 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 PreviewCard(
                   image: 'assets/img/seguranca.png',
                   icon: Icons.article,
-                  title: 'OWASP Top 10 - Sua aplicação é realmente segura? Descubra...',
+                  title:
+                      'OWASP Top 10 - Sua aplicação é realmente segura? Descubra...',
                   subtitle: 'loren ipsun domain loren ipsun domain',
                   label: 'Ver Mais',
                   location: '/home',
@@ -57,8 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           )
-        ],),
-      
+        ],
+      ),
     );
   }
 }

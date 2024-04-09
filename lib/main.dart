@@ -1,32 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:go_router/go_router.dart';
-import 'package:pushschool/screens/courses_screen.dart';
-import 'package:pushschool/screens/home_screen.dart';
-import 'package:pushschool/screens/login_screen.dart';
-import 'package:pushschool/screens/register_screen.dart';
-
-final router = GoRouter(routes: [
-  GoRoute(
-    path: '/',
-    builder: (context, state) => const LoginScreen(),
-  ),
-  GoRoute(
-    path: '/register',
-    builder: (context, state) => const RegisterScreen(),
-  ),
-  GoRoute(
-    path: '/home',
-    builder: (context, state) => const HomeScreen(),
-  ),
-  GoRoute(
-    path: '/courses',
-    builder: (context, state) => const CoursesScreen(),
-  )
-]);
+import 'package:device_preview/device_preview.dart';
+import 'routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -35,6 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       title: 'Push School',

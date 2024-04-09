@@ -5,7 +5,7 @@ class Button extends StatefulWidget {
   final String label;
   final String location;
 
-  const Button ({
+  const Button({
     required this.label,
     required this.location,
     super.key,
@@ -24,14 +24,11 @@ class _ButtonState extends State<Button> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: FilledButton(
-        onPressed: () =>{
-          context.go(widget.location)
-        },
+        onPressed: () => {context.go(widget.location)},
         //onPressed: onPressed,
-        child: 
-          Text(
-            widget.label,
-          ),
+        child: Text(
+          widget.label,
+        ),
       ),
     );
   }
