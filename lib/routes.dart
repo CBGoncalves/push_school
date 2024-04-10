@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:pushschool/screens/courses_screen.dart';
-import 'package:pushschool/screens/home_screen.dart';
-import 'package:pushschool/screens/login_screen.dart';
-import 'package:pushschool/screens/register_screen.dart';
+import 'package:pushschool/screens/home/home_screen.dart';
+import 'package:pushschool/screens/login/login_screen.dart';
+import 'package:pushschool/screens/register/register_screen.dart';
 
 final router = GoRouter(
   routes: [
