@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pushschool/screens/home/home_init_screen.dart';
-import 'package:pushschool/screens/login/login_screen.dart';
-
+import 'package:pushschool/screens/loading/loading_screen.dart';
 import 'bloc/home_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
         if (state is HomePageOpened) {
           return const HomeInitScreen();
         }
-        return const LoginScreen();
+        return const LoadingScreen();
       },
     );
   }
