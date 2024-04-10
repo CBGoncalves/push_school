@@ -7,7 +7,7 @@ class PreviewCard extends StatefulWidget {
   final String title;
   final String subtitle;
   final String label;
-  final String location;
+  final VoidCallback onPressed;
 
   const PreviewCard(
       {required this.image,
@@ -15,7 +15,7 @@ class PreviewCard extends StatefulWidget {
       required this.title,
       required this.subtitle,
       required this.label,
-      required this.location,
+      required this.onPressed,
       super.key});
 
   @override
@@ -56,9 +56,12 @@ class _PreviewCardState extends State<PreviewCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Button(
-                  label: widget.label,
-                  location: widget.location,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Button(
+                    label: widget.label,
+                    onPressed: widget.onPressed,
+                  ),
                 ),
               ],
             )

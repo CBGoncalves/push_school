@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pushschool/components/preview_card.dart';
 import 'package:pushschool/components/railmenu.dart';
 
@@ -24,16 +25,16 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.message))
         ],
       ),
-      body: const Row(
+      body: Row(
         children: [
-          RailMenu(selectedDrawerIndex: 0),
-          SizedBox(width: 6),
+          const RailMenu(selectedDrawerIndex: 0),
+          const SizedBox(width: 6),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Novidades para você",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
@@ -43,7 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: 'Lógica de Programação',
                   subtitle: 'loren ipsun domain loren ipsun domain',
                   label: 'Ver Mais',
-                  location: '/home',
+                  onPressed: () {
+                    context.push('/home');
+                  },
                 ),
                 PreviewCard(
                   image: 'assets/img/seguranca.png',
@@ -52,7 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       'OWASP Top 10 - Sua aplicação é realmente segura? Descubra...',
                   subtitle: 'loren ipsun domain loren ipsun domain',
                   label: 'Ver Mais',
-                  location: '/home',
+                  onPressed: () {
+                    context.push('/home');
+                  },
                 ),
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pushschool/components/preview_card.dart';
 import 'package:pushschool/components/railmenu.dart';
 
@@ -14,8 +15,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Text('Olá, ', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text('Olá, Carlos',
+            style: TextStyle(fontWeight: FontWeight.bold)),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -24,10 +25,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.message))
         ],
       ),
-      body: const Row(
+      body: Row(
         children: [
-          RailMenu(selectedDrawerIndex: 1),
-          SizedBox(
+          const RailMenu(selectedDrawerIndex: 1),
+          const SizedBox(
             width: 6,
           ),
           Expanded(
@@ -35,7 +36,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Nossos cursos",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
@@ -45,16 +46,21 @@ class _CoursesScreenState extends State<CoursesScreen> {
                 title: 'Lógica de Programação',
                 subtitle: 'loren ipsun domain loren ipsun domain',
                 label: 'Ver Mais',
-                location: '/home',
+                onPressed: () {
+                  context.push('/home');
+                },
               ),
               PreviewCard(
-                  image: 'assets/img/javascript.png',
-                  icon: Icons.javascript,
-                  title: 'JavaScript',
-                  subtitle:
-                      'JavaScript é uma linguagem de programação interpretada....',
-                  label: 'Ver mais',
-                  location: '/home')
+                image: 'assets/img/javascript.png',
+                icon: Icons.javascript,
+                title: 'JavaScript',
+                subtitle:
+                    'JavaScript é uma linguagem de programação interpretada....',
+                label: 'Ver mais',
+                onPressed: () {
+                  context.push('/home');
+                },
+              )
             ],
           )),
         ],

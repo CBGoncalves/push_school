@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class Button extends StatefulWidget {
   final String label;
-  final String location;
+  final VoidCallback onPressed;
 
   const Button({
     required this.label,
-    required this.location,
+    required this.onPressed,
     super.key,
   });
 
@@ -22,9 +21,20 @@ class _ButtonState extends State<Button> {
   Widget build(BuildContext context) {
     //final VoidCallback? onPressed = enabled ? () {} : null;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
       child: FilledButton(
-        onPressed: () => {context.go(widget.location)},
+        onPressed: widget.onPressed,
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all(Theme.of(context).primaryColor),
+          overlayColor:
+              MaterialStateProperty.all(Theme.of(context).primaryColorLight),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+          ),
+        ),
         //onPressed: onPressed,
         child: Text(
           widget.label,
