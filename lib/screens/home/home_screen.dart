@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pushschool/screens/courses_screen.dart';
 import 'package:pushschool/screens/home/home_init_screen.dart';
 import 'package:pushschool/screens/loading/loading_screen.dart';
 import 'bloc/home_bloc.dart';
@@ -31,6 +32,9 @@ class _HomeViewState extends State<HomeView> {
       builder: (context, state) {
         if (state is HomePageOpened) {
           return const HomeInitScreen();
+        }
+        if (state is CoursesScreenOpened) {
+          return const CoursesScreen();
         }
         return const LoadingScreen();
       },
