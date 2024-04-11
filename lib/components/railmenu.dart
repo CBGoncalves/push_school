@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pushschool/screens/home/bloc/home_bloc.dart';
 
 class RailMenu extends StatefulWidget {
   final int? selectedDrawerIndex;
@@ -66,13 +68,13 @@ class _RailMenuState extends State<RailMenu> {
     );
   }
 
-  void updateRoute(selectedDrawerIndex) {
+  updateRoute(selectedDrawerIndex) {
     switch (selectedDrawerIndex) {
       case 0:
-        context.push('/home');
+        BlocProvider.of<HomeBloc>(context).add(HomeInitialized());
         break;
       case 1:
-        context.push('/courses');
+        BlocProvider.of<HomeBloc>(context).add(CoursesScreenInitialized());
         break;
       case 2:
         context.push('/home');
