@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pushschool/components/app_bar.dart';
 import 'package:pushschool/components/list_card.dart';
-import 'package:pushschool/constants/text_consts.dart';
 
 import '../../components/railmenu.dart';
 import '../../http/dtos/post_dto.dart';
