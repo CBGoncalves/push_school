@@ -27,8 +27,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 270,
               ),
             ),
-            const Input(label: 'Login'),
-            const Input(label: 'Senha'),
+            const Input(
+              label: 'Login',
+            ),
+            const Input(
+              label: 'Senha',
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,

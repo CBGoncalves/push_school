@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pushschool/components/app_bar.dart';
 import 'package:pushschool/components/preview_card.dart';
+import 'package:pushschool/constants/text_consts.dart';
 import '../../components/railmenu.dart';
 
 class HomeInitScreen extends StatelessWidget {
@@ -9,16 +11,8 @@ class HomeInitScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Olá, Carlos',
-            style: TextStyle(fontWeight: FontWeight.bold)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.message))
-        ],
+      appBar: TopBar(
+        key: null,
       ),
       body: Row(
         children: [
@@ -31,7 +25,10 @@ class HomeInitScreen extends StatelessWidget {
               children: [
                 const Text(
                   "Novidades para você",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: TextConsts.largeText,
+                  ),
                 ),
                 PreviewCard(
                   image: 'assets/img/logica_programacao.png',

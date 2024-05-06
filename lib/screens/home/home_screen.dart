@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pushschool/screens/courses_screen.dart';
 import 'package:pushschool/screens/home/home_init_screen.dart';
 import 'package:pushschool/screens/loading/loading_screen.dart';
+import '../forum/forum_screen.dart';
 import 'bloc/home_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +35,12 @@ class _HomeViewState extends State<HomeView> {
       builder: (context, state) {
         if (state is HomePageOpened) {
           return const HomeInitScreen();
-        }
-        if (state is CoursesScreenOpened) {
+        } else if (state is CoursesScreenOpened) {
           return const CoursesScreen();
+        } else if (state is ForumOpened) {
+          return ForumScreen(
+            postList: state.postList,
+          );
         }
         return const LoadingScreen();
       },

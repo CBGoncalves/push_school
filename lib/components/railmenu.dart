@@ -44,18 +44,40 @@ class _RailMenuState extends State<RailMenu> {
                 width: 35,
                 color: Theme.of(context).primaryColor,
               ),
-              label: const Text('Home'),
+              label: const Text(
+                'Home',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             const NavigationRailDestination(
               icon: Icon(Icons.subscriptions),
-              label: Text('Cursos'),
+              label: Text(
+                'Cursos',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             const NavigationRailDestination(
               icon: Icon(Icons.forum),
-              label: Text('Fóruns'),
+              label: Text(
+                'Fórum',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             const NavigationRailDestination(
-                icon: Icon(Icons.settings), label: Text('Configurações'))
+              icon: Icon(Icons.settings),
+              label: Text(
+                'Configurações',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            )
           ],
           selectedIndex: widget.selectedDrawerIndex,
           labelType: labelType,
@@ -77,7 +99,7 @@ class _RailMenuState extends State<RailMenu> {
         BlocProvider.of<HomeBloc>(context).add(CoursesScreenInitialized());
         break;
       case 2:
-        context.push('/home');
+        BlocProvider.of<HomeBloc>(context).add(ForumInitialized());
         break;
       case 3:
         context.push('/home');

@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:pushschool/constants/text_consts.dart';
 
-class TopBar extends StatefulWidget {
+class _PreferredAppBarSize extends Size {
+  _PreferredAppBarSize(this.toolbarHeight, this.bottomHeight)
+      : super.fromHeight(
+            (toolbarHeight ?? kToolbarHeight) + (bottomHeight ?? 0));
+
+  final double? toolbarHeight;
+  final double? bottomHeight;
+}
+
+class TopBar extends StatefulWidget implements PreferredSizeWidget {
+  final String? pageTitle;
   const TopBar({
-    super.key
+    this.pageTitle,
+    super.key,
   });
+  @override
+  Size get preferredSize => _PreferredAppBarSize(30, 30);
 
   @override
   State<TopBar> createState() => _TopBarState();
@@ -12,16 +26,21 @@ class TopBar extends StatefulWidget {
 class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(0.0),
-      child: AppBar(
-        title: const Text('Olá, Carlos',
-        style: TextStyle(fontWeight: FontWeight.bold)),
-        actions: [
-          IconButton(icon: const Icon(Icons.search), onPressed: () {  },),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.message))
-        ],
+    return AppBar(
+      title: Text(
+        widget.pageTitle ?? 'Olá, Carlos',
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: TextConsts.appBarTitle,
+        ),
       ),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.search),
+          onPressed: () {},
+        ),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.message))
+      ],
     );
   }
 }

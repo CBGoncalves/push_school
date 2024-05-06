@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pushschool/constants/text_consts.dart';
 
 class Button extends StatefulWidget {
   final String label;
@@ -38,6 +39,9 @@ class _ButtonState extends State<Button> {
         //onPressed: onPressed,
         child: Text(
           widget.label,
+          style: const TextStyle(
+            fontSize: TextConsts.largeText,
+          ),
         ),
       ),
     );

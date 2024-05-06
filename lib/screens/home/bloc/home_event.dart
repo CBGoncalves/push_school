@@ -7,3 +7,5 @@ sealed class HomeEvent {
 class HomeInitialized extends HomeEvent {}
 
 class CoursesScreenInitialized extends HomeEvent {}
+
+class ForumInitialized extends HomeEvent {}

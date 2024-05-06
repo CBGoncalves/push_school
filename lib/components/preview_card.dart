@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pushschool/components/button.dart';
+import 'package:pushschool/constants/text_consts.dart';
 
 class PreviewCard extends StatefulWidget {
   final String image;
@@ -9,14 +10,15 @@ class PreviewCard extends StatefulWidget {
   final String label;
   final VoidCallback onPressed;
 
-  const PreviewCard(
-      {required this.image,
-      required this.icon,
-      required this.title,
-      required this.subtitle,
-      required this.label,
-      required this.onPressed,
-      super.key});
+  const PreviewCard({
+    required this.image,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.label,
+    required this.onPressed,
+    super.key,
+  });
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -46,12 +48,16 @@ class _PreviewCardState extends State<PreviewCard> {
               title: Text(
                 widget.title,
                 style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+                  fontSize: TextConsts.largeText,
                 ),
-                maxLines: 1,
+                maxLines: 2,
               ),
-              subtitle: Text(widget.subtitle),
+              subtitle: Text(
+                widget.subtitle,
+                style: const TextStyle(
+                    fontSize: TextConsts.mediumText,
+                    fontWeight: FontWeight.w100),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,

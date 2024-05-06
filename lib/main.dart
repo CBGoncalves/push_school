@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'routes.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       routerConfig: router,
       title: 'Push School',
       theme: FlexThemeData.light(
-        fontFamily: 'Samsung Sans',
+        fontFamily: GoogleFonts.questrial().fontFamily,
         colors: const FlexSchemeColor(
           primary: Color(0xff004881),
           primaryContainer: Color(0xffd0e4ff),
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
         swapLegacyOnMaterial3: true,
       ),
       darkTheme: FlexThemeData.dark(
-        fontFamily: 'Samsung Sans',
+        fontFamily: GoogleFonts.questrial().fontFamily,
         colors: const FlexSchemeColor(
           primary: Color(0xff004fe0),
           primaryContainer: Color(0xff2e4f8b),

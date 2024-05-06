@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pushschool/components/app_bar.dart';
 import 'package:pushschool/components/preview_card.dart';
 import 'package:pushschool/components/railmenu.dart';
+import 'package:pushschool/constants/text_consts.dart';
 
 class CoursesScreen extends StatefulWidget {
   const CoursesScreen({super.key});
@@ -14,16 +16,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Olá, Carlos',
-            style: TextStyle(fontWeight: FontWeight.bold)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.message))
-        ],
+      appBar: const TopBar(
+        key: null,
       ),
       body: Row(
         children: [
@@ -38,7 +32,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
             children: [
               const Text(
                 "Nossos cursos",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: TextConsts.largeText,
+                ),
               ),
               PreviewCard(
                 image: 'assets/img/logica_programacao.png',
