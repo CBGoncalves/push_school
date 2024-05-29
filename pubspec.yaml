@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -32,7 +32,6 @@ dependencies:
     sdk: flutter
   flex_color_scheme: ^7.3.1
   go_router: ^13.2.0
-  device_preview: ^1.1.0
   flutter_bloc: ^8.1.5
   google_fonts: ^6.2.1
   http: ^1.2.1
@@ -82,17 +81,13 @@ flutter:
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
-  fonts:
-    - family: Samsung Sans
-      fonts:
-        - asset: assets/fonts/SamsungSans-Regular.ttf
-        - asset: assets/fonts/SamsungSans-Light.ttf
-  #         style: italic
-  #   - family: Trajan Pro
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages

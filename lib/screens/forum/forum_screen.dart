@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pushschool/components/app_bar.dart';
 import 'package:pushschool/components/list_card.dart';
 
@@ -40,9 +41,15 @@ class _ForumScreenState extends State<ForumScreen> {
                 var item = widget.postList[index];
                 return ListCard(
                   title: item.title,
-                  owner: item.owner,
-                  date: item.date,
+                  owner: item.ownerName,
+                  date: item.datePost,
                   comments: item.comments.length.toString(),
+                  onPressed: () {
+                    context.push(
+                      '/post',
+                      extra: item,
+                    );
+                  },
                 );
               },
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pushschool/http/repositorys/comment_repository.dart';
 import 'package:pushschool/http/repositorys/post_repository.dart';
 
 import '../../../http/dtos/post_dto.dart';
@@ -6,6 +7,9 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  final PostRepository postRepository = PostRepository();
+  final CommentRepository commentRepository = CommentRepository();
+
   HomeBloc() : super(HomeState()) {
     on<HomeInitialized>(_homeInitialized);
     on<CoursesScreenInitialized>(_coursesScreenInitialized);
@@ -30,12 +34,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     ForumInitialized event,
     Emitter<HomeState> emit,
   ) async {
-    PostRepository postRepository = PostRepository();
+    try {
+      var postList = await postRepository.getPost();
 
-    var postList = await postRepository.getPost();
+      for (var item in postList) {
+        item.comments =
+            await commentRepository.getCommentsByPostId(int.parse(item.idPost));
+      }
 
-    print(postList);
-
-    emit(ForumOpened(postList: postList));
+      emit(
+        ForumOpened(
+          postList: postList,
+        ),
+      );
+    } catch (e) {
+      print('Erro ao obter posts: $e');
+    }
   }
 }
