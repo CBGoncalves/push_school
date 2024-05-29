@@ -40,24 +40,14 @@ class _CoursesScreenState extends State<CoursesScreen> {
               PreviewCard(
                 image: 'assets/img/logica_programacao.png',
                 icon: Icons.subscriptions,
-                title: 'Lógica de Programação',
-                subtitle: 'loren ipsun domain loren ipsun domain',
+                title: 'Programação de Computadores',
+                subtitle:
+                    'Nesta disciplina são apresentados os conceitos básicos de organização de computadores e projeto',
                 label: 'Ver Mais',
                 onPressed: () {
-                  context.push('/home');
+                  context.push('/initial-course');
                 },
               ),
-              PreviewCard(
-                image: 'assets/img/javascript.png',
-                icon: Icons.javascript,
-                title: 'JavaScript',
-                subtitle:
-                    'JavaScript é uma linguagem de programação interpretada....',
-                label: 'Ver mais',
-                onPressed: () {
-                  context.push('/home');
-                },
-              )
             ],
           )),
         ],

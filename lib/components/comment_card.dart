@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pushschool/constants/text_consts.dart';
 
-class ListCard extends StatelessWidget {
+class CommentCard extends StatelessWidget {
   final String userName;
   final String userComment;
+  final String image;
+  final bool hasImage;
 
-  const ListCard({
+  const CommentCard({
     required this.userName,
     required this.userComment,
+    this.image = "",
+    this.hasImage = false,
     super.key,
   });
 
@@ -25,25 +29,42 @@ class ListCard extends StatelessWidget {
             left: 8.0,
             right: 8.0,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                userName,
-                style: const TextStyle(
-                  fontSize: TextConsts.largeText,
-                  fontWeight: FontWeight.bold,
-                  backgroundColor: Color(
-                    0xFFddf4ff,
-                  ),
-                ),
-                maxLines: 2,
+              hasImage
+                  ? Image.network(
+                      image,
+                      scale: 1.5,
+                    )
+                  : Container(),
+              const SizedBox(
+                width: 8.0,
               ),
-              Text(
-                userComment,
-                style: const TextStyle(
-                  fontSize: TextConsts.mediumText,
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userName,
+                      style: TextStyle(
+                        fontSize: TextConsts.mediumText,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      maxLines: 2,
+                    ),
+                    Text(
+                      userComment,
+                      style: const TextStyle(
+                        fontSize: TextConsts.mediumText,
+                      ),
+                      maxLines: null,
+                    ),
+                  ],
                 ),
               ),
             ],

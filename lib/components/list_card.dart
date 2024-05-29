@@ -40,18 +40,19 @@ class ListCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: TextConsts.largeText,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: TextConsts.largeText,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 2,
                       ),
-                      maxLines: 2,
-                    )
+                    ),
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       "$comments comentários",

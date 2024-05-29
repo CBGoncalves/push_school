@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'routes.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

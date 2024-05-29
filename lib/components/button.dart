@@ -4,10 +4,16 @@ import 'package:pushschool/constants/text_consts.dart';
 class Button extends StatefulWidget {
   final String label;
   final VoidCallback onPressed;
+  final bool hasIcon;
+  final IconData icon;
+  final MainAxisSize mainAxisSize;
 
   const Button({
     required this.label,
     required this.onPressed,
+    this.hasIcon = false,
+    this.icon = Icons.message,
+    this.mainAxisSize = MainAxisSize.min,
     super.key,
   });
 
@@ -27,21 +33,34 @@ class _ButtonState extends State<Button> {
         onPressed: widget.onPressed,
         style: ButtonStyle(
           backgroundColor:
-              MaterialStateProperty.all(Theme.of(context).primaryColor),
+              WidgetStateProperty.all(Theme.of(context).primaryColor),
           overlayColor:
-              MaterialStateProperty.all(Theme.of(context).primaryColorLight),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              WidgetStateProperty.all(Theme.of(context).primaryColorLight),
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0),
             ),
           ),
         ),
         //onPressed: onPressed,
-        child: Text(
-          widget.label,
-          style: const TextStyle(
-            fontSize: TextConsts.largeText,
-          ),
+        child: Row(
+          mainAxisSize: widget.mainAxisSize,
+          children: [
+            widget.hasIcon
+                ? Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Icon(
+                      widget.icon,
+                    ),
+                  )
+                : Container(),
+            Text(
+              widget.label,
+              style: const TextStyle(
+                fontSize: TextConsts.largeText,
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -11,7 +11,18 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
+
   final bool showAppBar = false;
+
+  @override
+  void initState() {
+    nameController.dispose();
+    passController.dispose();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +50,24 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Button(
                   onPressed: () {
-                    context.go('/home');
+                    String nome = nameController.text;
+                    String senha = passController.text;
+
+                    if (nome == " " || senha == " ") {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          backgroundColor: Color(0xFFb00020),
+                          content: Text(
+                            "Preencha os dados do usuário!",
+                            style: TextStyle(
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                      );
+                    } else {
+                      context.go('/home');
+                    }
                   },
                   label: 'Entrar',
                 ),

@@ -11,7 +11,7 @@ class HomeInitScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopBar(
+      appBar: const TopBar(
         key: null,
       ),
       body: Row(
@@ -33,11 +33,12 @@ class HomeInitScreen extends StatelessWidget {
                 PreviewCard(
                   image: 'assets/img/logica_programacao.png',
                   icon: Icons.subscriptions,
-                  title: 'Lógica de Programação',
-                  subtitle: 'loren ipsun domain loren ipsun domain',
+                  title: 'Programação de Computadores',
+                  subtitle:
+                      'Nesta disciplina são apresentados os conceitos básicos de organização de computadores e projeto',
                   label: 'Ver Mais',
                   onPressed: () {
-                    context.push('/home');
+                    context.push('/initial-course');
                   },
                 ),
                 PreviewCard(
@@ -45,7 +46,8 @@ class HomeInitScreen extends StatelessWidget {
                   icon: Icons.article,
                   title:
                       'OWASP Top 10 - Sua aplicação é realmente segura? Descubra...',
-                  subtitle: 'loren ipsun domain loren ipsun domain',
+                  subtitle:
+                      'Nos dias de hoje é impossível desenvolver aplicações web sem falar de segurança.',
                   label: 'Ver Mais',
                   onPressed: () {
                     context.push('/home');

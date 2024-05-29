@@ -38,7 +38,7 @@ class _PreviewCardState extends State<PreviewCard> {
               children: [
                 Image.asset(
                   widget.image,
-                  width: 250,
+                  width: 300,
                   fit: BoxFit.cover,
                 ),
               ],

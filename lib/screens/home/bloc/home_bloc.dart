@@ -14,6 +14,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeInitialized>(_homeInitialized);
     on<CoursesScreenInitialized>(_coursesScreenInitialized);
     on<ForumInitialized>(_forumInitialized);
+    on<ConfigInitialized>(_configInitialized);
   }
 
   Future<void> _homeInitialized(
@@ -50,5 +51,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } catch (e) {
       print('Erro ao obter posts: $e');
     }
+  }
+
+  Future<void> _configInitialized(
+    ConfigInitialized event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(ConfigScreenOpened());
   }
 }

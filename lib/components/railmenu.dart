@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pushschool/screens/home/bloc/home_bloc.dart';
 
 class RailMenu extends StatefulWidget {
@@ -102,7 +101,7 @@ class _RailMenuState extends State<RailMenu> {
         BlocProvider.of<HomeBloc>(context).add(ForumInitialized());
         break;
       case 3:
-        context.push('/home');
+        BlocProvider.of<HomeBloc>(context).add(ConfigInitialized());
         break;
     }
   }

@@ -13,3 +13,5 @@ class ForumOpened extends HomeState {
     required this.postList,
   });
 }
+
+class ConfigScreenOpened extends HomeState {}

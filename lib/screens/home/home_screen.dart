@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pushschool/screens/courses_screen.dart';
+import 'package:pushschool/screens/configuration/config_screen.dart';
+import 'package:pushschool/screens/course/courses_screen.dart';
 import 'package:pushschool/screens/home/home_init_screen.dart';
 import 'package:pushschool/screens/loading/loading_screen.dart';
 import '../forum/forum_screen.dart';
@@ -41,6 +42,8 @@ class _HomeViewState extends State<HomeView> {
           return ForumScreen(
             postList: state.postList,
           );
+        } else if (state is ConfigScreenOpened) {
+          return const ConfigScreen();
         }
         return const LoadingScreen();
       },

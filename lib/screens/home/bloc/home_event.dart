@@ -9,3 +9,5 @@ class HomeInitialized extends HomeEvent {}
 class CoursesScreenInitialized extends HomeEvent {}
 
 class ForumInitialized extends HomeEvent {}
+
+class ConfigInitialized extends HomeEvent {}

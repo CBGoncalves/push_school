@@ -12,6 +12,7 @@ class _PreferredAppBarSize extends Size {
 
 class TopBar extends StatefulWidget implements PreferredSizeWidget {
   final String? pageTitle;
+
   const TopBar({
     this.pageTitle,
     super.key,
@@ -39,7 +40,10 @@ class _TopBarState extends State<TopBar> {
           icon: const Icon(Icons.search),
           onPressed: () {},
         ),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.message))
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.message),
+        )
       ],
     );
   }
