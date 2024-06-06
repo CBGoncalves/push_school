@@ -8,7 +8,7 @@ class UserRepository {
   Future<User> getUserByNamePass(
       String nomeUsuario, String senhaUsuario) async {
     final response = await client.get(Uri.parse(
-        'http://192.168.15.111:5240/api/Usuario/${nomeUsuario}/${senhaUsuario}'));
+        'http://172.16.1.49:5240/api/Usuario/${nomeUsuario}/${senhaUsuario}'));
 
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body);
